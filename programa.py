@@ -1,16 +1,14 @@
 from tkinter import *
 
 raiz=Tk()
-raiz.title("Proyecto")
+raiz.title("Maquina Expendedora")
 raiz.resizable(False,True)
-raiz.geometry("650x350")
 raiz.config(bg="white")
-raiz.mainloop()
+raiz.iconbitmap("ARB.ico")
 
-root=Tk()
-miFrame = Frame(root, width=500, heigth=400)
+miFrame = Frame(raiz, width=500, height=400)
 miFrame.pack()
-miLabel=Label(miFrame, text="Bebidas")
-miLabel.pack()
+Label(miFrame, text="Ingrese tipo de usuario : ", fg="black" , font=(18)).place(x=20,y=20)
+miFrame.config(bg="light blue")
 
-root.mainloop()
+raiz.mainloop()
