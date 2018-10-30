@@ -9,6 +9,11 @@ raiz.iconbitmap("ARB.ico")
 miFrame = Frame(raiz, width=500, height=400)
 miFrame.pack()
 Label(miFrame, text="Ingrese tipo de usuario : ", fg="black" , font=(18)).place(x=20,y=20)
-miFrame.config(bg="light blue")
+miFrame.config(bg="black")
+
+botonAdmistrador = Button(raiz, text= "Admistrador")
+botonAdmistrador.pack()
+botonUsuario = Button(raiz, text= "Usuario")
+botonUsuario.pack()
 
 raiz.mainloop()
