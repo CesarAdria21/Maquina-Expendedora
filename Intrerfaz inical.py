@@ -1,44 +1,35 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import *
 
-ventana = tk.Tk()
-entrada = tk.Entry(ventana)
-entrada.pack(fill = tk.X , padx = 5, pady = 5 , ipadx = 5 , ipady = 5)
-
-def validar():
-    if entrada.get() == 'josep':
-        abrirventana2()
-    else:
-        messagebox.showwarning("Password Incorrecto")
-
-def abrirventana2():
-    
-    ventana.withdraw()
-
-    ventana.withdraw()
-    win = tk.Toplevel()
-    win.geometry('380x300+1900+100')
-    win.configure(background='dark green')
-    e3 = tk.Label(win , text = "Segunda ventana", bg ="blue", fg ="white")
+def Password():
+    contra = Toplevel()
+    contra.title("Password")
+    contra.geometry('380x300')
+    e3 = tk.Label(contra , text = "Segunda ventana", bg ="blue", fg ="white")
     e3.pack( padx = 5, pady = 5 , ipadx = 5 , ipady = 5, fill = tk.X)
+    contra.mainloop
 
-    boton2 = tk.Button(win, text='OK', command = win.destroy)
-    boton2.pack( side = tk.TOP)
+def Compra():
+    contra = Toplevel()
+    contra.title("Compra")
+    contra.mainloop
 
-def cerraventana():
-    
-    ventana.destroy()
 
-    ventana.title("Ventana 1")
-    ventana.geometry('380x300')
-    ventana.configure(background='dark green')
+raiz=Tk()
+raiz.title("Maquina Expendedora")
+raiz.resizable(False,True)
+raiz.config(bg="white")
 
-    el = tk.Label(ventana, text = "Password:", bg="pink", fg="white")
-    el.pack( padx = 5, pady = 5 , ipadx = 5 , ipady = 5)
+miFrame = Frame(raiz, width=500, height=400)
+miFrame.pack()
+Label(miFrame, text="Ingrese tipo de usuario : ", fg="black" , font=(18)).place(x=20,y=20)
+miFrame.config(bg="light blue")
 
-boton = tk.Button(ventana, text="Nueva ventana", fg = "blue" , command = abrirventana2)
-boton.pack(side = tk.TOP)
+botonAdministrador = Button(raiz,text=" Administrador ",command = Password)
+botonAdministrador.place(x=20,y=60)
 
-boton3 = tk.Button(ventana, text="Validar Password", fg = "blue" , command = abrirventana2)
-boton3.pack(side = tk.TOP)
-ventana.mainloop()
+botonConsumidor = Button(raiz,text=" Consumidor ", command = Compra)
+botonConsumidor.place(x=160,y=60)
+
+raiz.mainloop()
