@@ -3,14 +3,16 @@ from tkinter import messagebox
 
 def aceptarCompra():
     messagebox.askquestion("Compra","¿Conforme con la compra?")
+
 def salirAplicacion():
     valor=messagebox.askquestion("Salir","¿Desea finalizar la compra?")
-
     if valor=="yes":
         raiz.destroy()
 
 def cancelarCompra():
-    messagebox.askquestion("Cancelar","¿Desea Cancelar la compra?")
+    cancel=messagebox.askokcancel("Cancelar","¿Desea Cancelar la compra?")
+    if cancel==True:
+        raiz.destroy()
 
     
 raiz=Tk()
@@ -53,9 +55,9 @@ boton3=Button(miFrame,text="3", width=3,command=lambda:numeroPulsado("Chicha Mor
 boton3.grid(row=3, column=3)
 
 
-botonAdmistrador = Button(raiz, text= "Admistrador")
-botonAdmistrador.pack()
-botonUsuario = Button(raiz, text= "Usuario")
-botonUsuario.pack()
+# botonAdmistrador = Button(raiz, text= "Admistrador")
+# botonAdmistrador.pack()
+# botonUsuario = Button(raiz, text= "Usuario")
+# botonUsuario.pack()
 
 raiz.mainloop()
