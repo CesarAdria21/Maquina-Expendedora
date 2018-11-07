@@ -1,5 +1,18 @@
 from tkinter import *
+from tkinter import messagebox 
 
+def aceptarCompra():
+    messagebox.askquestion("Compra","¿Conforme con la compra?")
+def salirAplicacion():
+    valor=messagebox.askquestion("Salir","¿Desea finalizar la compra?")
+
+    if valor=="yes":
+        raiz.destroy()
+
+def cancelarCompra():
+    messagebox.askquestion("Cancelar","¿Desea Cancelar la compra?")
+
+    
 raiz=Tk()
 raiz.title("Maquina Expendedora")
 raiz.resizable(False,False)
@@ -14,16 +27,18 @@ miFrame.pack()
 numeroPantalla = StringVar()
 
 pantalla=Entry(miFrame,textvariable=numeroPantalla)
-pantalla.grid(row=1, column=1, padx=10, pady=10, columnspan=4)
+pantalla.grid(row=1, column=1, padx=10, pady=10, columnspan=3)
 pantalla.config(background="black",fg ="white", justify="right")
 
 def numeroPulsado(num):
     numeroPantalla.set(num)
     
-botonComprar=Button(miFrame,text="Comprar",width=3,command=lambda:numeroPulsado("Recibiendo..."))
-botonComprar.grid(row=4, column=4)
-botonBorrar=Button(miFrame,text="Borrar",width=3,command=lambda:numeroPulsado("a"))
-botonBorrar.grid(row=3, column=4)
+botonComprar=Button(miFrame,text="Buy",width=3,command=aceptarCompra)
+botonComprar.grid(row=5, column=1)
+botonCancelar=Button(miFrame,text="Cancel",width=3,command=cancelarCompra)
+botonCancelar.grid(row=5, column=2)
+botonFinalizar=Button(miFrame,text="End",width=3,command=salirAplicacion)
+botonFinalizar.grid(row=5, column=3)
 boton4=Button(miFrame,text="4", width=3,command=lambda:numeroPulsado("Agua mineral"))
 boton4.grid(row=4, column=1)
 boton5=Button(miFrame,text="5", width=3,command=lambda:numeroPulsado("Gaseosa"))
