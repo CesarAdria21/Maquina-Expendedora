@@ -60,4 +60,27 @@ boton3.grid(row=3, column=3)
 # botonUsuario = Button(raiz, text= "Usuario")
 # botonUsuario.pack()
 
+notas =[12,12,12,12,8]
+menor = notas[0]
+for nota in notas:
+    if nota < menor:
+        menor = nota
+        
+print menor
+#otro
+notas=[]
+a1 = [14,15,13,14]
+a2 = [14,15,13,14]
+a3 = [14,15,13,14]
+notas.append(a1)
+notas.append(a2)
+notas.append(a3)
+suma = 0
+for fila in range(len(notas)):
+    for col in range(len(a1)):
+        suma = suma + notas[fila][col]
+    print "el promedio es ",suma/len(a1)
+    suma=0
+        
+
 raiz.mainloop()
